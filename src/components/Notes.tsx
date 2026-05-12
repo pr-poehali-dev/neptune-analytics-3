@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Icon from "@/components/ui/icon"
+import { useLocalStorage } from "@/lib/useLocalStorage"
 
 interface Note {
   id: number
@@ -33,7 +34,7 @@ const formatDate = (iso: string) => {
 }
 
 export function Notes({ onClose }: NotesProps) {
-  const [notes, setNotes] = useState<Note[]>(initialNotes)
+  const [notes, setNotes] = useLocalStorage<Note[]>("slimtrack_notes", initialNotes)
   const [text, setText] = useState("")
   const [showForm, setShowForm] = useState(false)
   const [editId, setEditId] = useState<number | null>(null)

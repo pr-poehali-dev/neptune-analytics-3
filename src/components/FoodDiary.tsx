@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Icon from "@/components/ui/icon"
+import { useLocalStorage } from "@/lib/useLocalStorage"
 
 interface FoodEntry {
   id: number
@@ -32,7 +33,7 @@ interface FoodDiaryProps {
 }
 
 export function FoodDiary({ onClose }: FoodDiaryProps) {
-  const [entries, setEntries] = useState<FoodEntry[]>([
+  const [entries, setEntries] = useLocalStorage<FoodEntry[]>("slimtrack_food", [
     { id: 1, name: "Овсянка с ягодами", calories: 280, protein: 8, fat: 5, carbs: 52, time: "08:30", meal: "breakfast" },
     { id: 2, name: "Куриная грудка с рисом", calories: 420, protein: 38, fat: 6, carbs: 48, time: "13:00", meal: "lunch" },
     { id: 3, name: "Яблоко", calories: 80, protein: 0, fat: 0, carbs: 20, time: "16:00", meal: "snack" },

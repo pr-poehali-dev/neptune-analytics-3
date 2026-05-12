@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Icon from "@/components/ui/icon"
+import { useLocalStorage } from "@/lib/useLocalStorage"
 
 interface WeightEntry {
   id: number
@@ -26,7 +27,7 @@ const initialEntries: WeightEntry[] = [
 ]
 
 export function WeightTracker({ onClose }: WeightTrackerProps) {
-  const [entries, setEntries] = useState<WeightEntry[]>(initialEntries)
+  const [entries, setEntries] = useLocalStorage<WeightEntry[]>("slimtrack_weight", initialEntries)
   const [newWeight, setNewWeight] = useState("")
   const [showInput, setShowInput] = useState(false)
 
