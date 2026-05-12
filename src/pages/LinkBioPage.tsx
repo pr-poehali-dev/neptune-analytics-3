@@ -217,7 +217,7 @@ export function LinkBioPage() {
           <ProfileSection
             name="SlimTrack"
             bio="Твой личный трекер похудения — фиксируй прогресс, достигай целей 🎯"
-            imageUrl="https://cdn.poehali.dev/projects/03f75943-3321-4ff7-a3ed-0cb52d66ba61/files/944f0f0a-be68-499d-ac6f-f192e54d0721.jpg"
+            imageUrl="https://cdn.poehali.dev/projects/03f75943-3321-4ff7-a3ed-0cb52d66ba61/bucket/762b6ced-3dba-4963-b372-f31dbb498b8b.jpg"
           />
         </motion.div>
 
