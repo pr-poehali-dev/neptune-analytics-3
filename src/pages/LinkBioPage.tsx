@@ -7,7 +7,8 @@ import { FoodDiary } from "@/components/FoodDiary"
 import { CalorieCalculator } from "@/components/CalorieCalculator"
 import { WeightTracker } from "@/components/WeightTracker"
 import { Notes } from "@/components/Notes"
-import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail, NotebookPen } from "lucide-react"
+import { type User } from "@/lib/api"
+import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail, NotebookPen, LogOut } from "lucide-react"
 
 const links = [
   {
@@ -82,7 +83,12 @@ const itemVariants = {
   },
 }
 
-export function LinkBioPage() {
+interface LinkBioPageProps {
+  user: User
+  onLogout: () => void
+}
+
+export function LinkBioPage({ user, onLogout }: LinkBioPageProps) {
   const [showDiary, setShowDiary] = useState(false)
   const [showCalc, setShowCalc] = useState(false)
   const [showWeight, setShowWeight] = useState(false)
@@ -226,9 +232,19 @@ export function LinkBioPage() {
         variants={containerVariants}
         className="relative z-10 mx-auto max-w-[400px] w-full flex flex-col flex-1 justify-between"
       >
-        <motion.div variants={itemVariants} className="pt-2">
+        <motion.div variants={itemVariants} className="pt-2 relative">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onLogout}
+            className="absolute top-0 right-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-gray-500 hover:text-red-400 transition-colors"
+            style={{ background: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.6)" }}
+          >
+            <LogOut size={12} />
+            Выйти
+          </motion.button>
           <ProfileSection
-            name="SlimTrack"
+            name={`Привет, ${user.name}!`}
             bio="Твой личный трекер похудения — фиксируй прогресс, достигай целей 🎯"
             imageUrl="https://cdn.poehali.dev/projects/03f75943-3321-4ff7-a3ed-0cb52d66ba61/bucket/762b6ced-3dba-4963-b372-f31dbb498b8b.jpg"
           />
