@@ -6,7 +6,8 @@ import { SocialFooter } from "@/components/SocialFooter"
 import { FoodDiary } from "@/components/FoodDiary"
 import { CalorieCalculator } from "@/components/CalorieCalculator"
 import { WeightTracker } from "@/components/WeightTracker"
-import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail } from "lucide-react"
+import { Notes } from "@/components/Notes"
+import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail, NotebookPen } from "lucide-react"
 
 const links = [
   {
@@ -33,6 +34,12 @@ const links = [
     description: "Персональная программа на 30 дней",
     href: "#",
     icon: CalendarCheck,
+  },
+  {
+    title: "Заметки",
+    description: "Мысли, цели и наблюдения",
+    href: "#",
+    icon: NotebookPen,
   },
   {
     title: "Бесплатный гайд",
@@ -79,6 +86,7 @@ export function LinkBioPage() {
   const [showDiary, setShowDiary] = useState(false)
   const [showCalc, setShowCalc] = useState(false)
   const [showWeight, setShowWeight] = useState(false)
+  const [showNotes, setShowNotes] = useState(false)
 
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
@@ -235,6 +243,7 @@ export function LinkBioPage() {
                   link.title === "Дневник питания" ? () => setShowDiary(true) :
                   link.title === "Калькулятор калорий" ? () => setShowCalc(true) :
                   link.title === "Начать отслеживать вес" ? () => setShowWeight(true) :
+                  link.title === "Заметки" ? () => setShowNotes(true) :
                   undefined
                 }
               />
@@ -257,6 +266,10 @@ export function LinkBioPage() {
 
       <AnimatePresence>
         {showWeight && <WeightTracker onClose={() => setShowWeight(false)} />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showNotes && <Notes onClose={() => setShowNotes(false)} />}
       </AnimatePresence>
     </main>
   )
