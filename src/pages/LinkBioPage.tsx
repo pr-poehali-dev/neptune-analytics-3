@@ -5,6 +5,7 @@ import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
 import { FoodDiary } from "@/components/FoodDiary"
 import { CalorieCalculator } from "@/components/CalorieCalculator"
+import { WeightTracker } from "@/components/WeightTracker"
 import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail } from "lucide-react"
 
 const links = [
@@ -77,6 +78,7 @@ const itemVariants = {
 export function LinkBioPage() {
   const [showDiary, setShowDiary] = useState(false)
   const [showCalc, setShowCalc] = useState(false)
+  const [showWeight, setShowWeight] = useState(false)
 
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
@@ -232,6 +234,7 @@ export function LinkBioPage() {
                 onClick={
                   link.title === "Дневник питания" ? () => setShowDiary(true) :
                   link.title === "Калькулятор калорий" ? () => setShowCalc(true) :
+                  link.title === "Начать отслеживать вес" ? () => setShowWeight(true) :
                   undefined
                 }
               />
@@ -250,6 +253,10 @@ export function LinkBioPage() {
 
       <AnimatePresence>
         {showCalc && <CalorieCalculator onClose={() => setShowCalc(false)} />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showWeight && <WeightTracker onClose={() => setShowWeight(false)} />}
       </AnimatePresence>
     </main>
   )
