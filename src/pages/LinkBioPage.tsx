@@ -2,36 +2,36 @@ import { motion } from "framer-motion"
 import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
-import { Globe, Youtube, Mail, ShoppingBag, FileText, MessageCircle, Send } from "lucide-react"
+import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail } from "lucide-react"
 
 const links = [
   {
-    title: "Мой сайт",
-    description: "Портфолио и услуги",
+    title: "Начать отслеживать вес",
+    description: "Запустить трекер прямо сейчас",
     href: "#",
-    icon: Globe,
+    icon: TrendingDown,
   },
   {
-    title: "YouTube канал",
-    description: "Видео и туториалы",
+    title: "Дневник питания",
+    description: "Записывай КБЖУ и приёмы пищи",
     href: "#",
-    icon: Youtube,
+    icon: Apple,
   },
   {
-    title: "Магазин",
-    description: "Товары и услуги",
+    title: "Тренировки и активность",
+    description: "Шаги, калории, тренировки",
     href: "#",
-    icon: ShoppingBag,
+    icon: Activity,
   },
   {
-    title: "Telegram",
-    description: "Написать напрямую",
+    title: "Мой план похудения",
+    description: "Персональная программа на 30 дней",
     href: "#",
-    icon: Send,
+    icon: CalendarCheck,
   },
   {
-    title: "Бесплатные материалы",
-    description: "Шаблоны и гайды",
+    title: "Бесплатный гайд",
+    description: "5 правил, которые реально работают",
     href: "#",
     icon: FileText,
   },
@@ -79,7 +79,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[500px] h-[500px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(147, 51, 234, 0.25) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%)",
           filter: "blur(60px)",
           top: "-10%",
           left: "-10%",
@@ -99,7 +99,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[600px] h-[600px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(52, 211, 153, 0.2) 0%, transparent 70%)",
           filter: "blur(80px)",
           top: "30%",
           right: "-20%",
@@ -119,7 +119,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[450px] h-[450px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(5, 150, 105, 0.2) 0%, transparent 70%)",
           filter: "blur(70px)",
           bottom: "-5%",
           left: "20%",
@@ -211,9 +211,9 @@ export function LinkBioPage() {
       >
         <motion.div variants={itemVariants} className="pt-2">
           <ProfileSection
-            name="GlassLinks"
-            bio="Креативный дизайнер и разработчик"
-            imageUrl="/images/544291433-18043960274659947-5766591717842883293-n.jpg"
+            name="SlimTrack"
+            bio="Твой личный трекер похудения — фиксируй прогресс, достигай целей 🎯"
+            imageUrl="https://cdn.poehali.dev/projects/03f75943-3321-4ff7-a3ed-0cb52d66ba61/files/944f0f0a-be68-499d-ac6f-f192e54d0721.jpg"
           />
         </motion.div>
 
@@ -226,7 +226,7 @@ export function LinkBioPage() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
-          <SocialFooter socials={socials} copyright="2025 GlassLinks" />
+          <SocialFooter socials={socials} copyright="2026 SlimTrack" />
         </motion.div>
       </motion.div>
     </main>
