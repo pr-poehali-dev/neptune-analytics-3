@@ -4,6 +4,7 @@ import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
 import { FoodDiary } from "@/components/FoodDiary"
+import { CalorieCalculator } from "@/components/CalorieCalculator"
 import { Activity, Apple, CalendarCheck, TrendingDown, FileText, MessageCircle, Send, Mail } from "lucide-react"
 
 const links = [
@@ -20,11 +21,12 @@ const links = [
     icon: Apple,
   },
   {
-    title: "Тренировки и активность",
-    description: "Шаги, калории, тренировки",
+    title: "Калькулятор калорий",
+    description: "Рассчитай норму по твоим параметрам",
     href: "#",
     icon: Activity,
   },
+
   {
     title: "Мой план похудения",
     description: "Персональная программа на 30 дней",
@@ -74,6 +76,7 @@ const itemVariants = {
 
 export function LinkBioPage() {
   const [showDiary, setShowDiary] = useState(false)
+  const [showCalc, setShowCalc] = useState(false)
 
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
@@ -226,7 +229,11 @@ export function LinkBioPage() {
             <motion.div key={link.title} variants={itemVariants}>
               <LinkCard
                 {...link}
-                onClick={link.title === "Дневник питания" ? () => setShowDiary(true) : undefined}
+                onClick={
+                  link.title === "Дневник питания" ? () => setShowDiary(true) :
+                  link.title === "Калькулятор калорий" ? () => setShowCalc(true) :
+                  undefined
+                }
               />
             </motion.div>
           ))}
@@ -239,6 +246,10 @@ export function LinkBioPage() {
 
       <AnimatePresence>
         {showDiary && <FoodDiary onClose={() => setShowDiary(false)} />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCalc && <CalorieCalculator onClose={() => setShowCalc(false)} />}
       </AnimatePresence>
     </main>
   )
